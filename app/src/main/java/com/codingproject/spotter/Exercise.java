@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 public class Exercise extends AppCompatActivity {
 
+    // UI Elements
     protected TextView  textView1;
     protected TextView  textView2;
     protected TextView  textView3;
@@ -26,6 +27,34 @@ public class Exercise extends AppCompatActivity {
     protected Button    button1;
     protected Button    button2;
     protected ImageView imageView1;
+
+    // Data objects
+    ExerciseObject chestExercises[];
+    ExerciseObject armExercises[];
+    ExerciseObject legExercises[];
+    ExerciseObject abExercises[];
+    ExerciseObject shoulderExercises[];
+    ExerciseObject backExercises[];
+    // Chest
+    ExerciseObject benchPress;
+    ExerciseObject inclinePress;
+    ExerciseObject pushup;
+    // Arm
+    ExerciseObject bicepCurl;
+    ExerciseObject hammerCurl;
+    ExerciseObject tricepPushup;
+    // Leg
+    ExerciseObject lunges;
+    // Ab
+    ExerciseObject crunches;
+    // Shoulder
+    ExerciseObject lateralRaise;
+    // Back
+    ExerciseObject chinUp;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +76,10 @@ public class Exercise extends AppCompatActivity {
         // Set up listeners
         button1.setOnClickListener(b1Listener);
         button1.setOnClickListener(b2Listener);
+
+        // Instantiate Exercise Objects
+        //benchPress = new ExerciseObject("Chest", "Bench Press", "Bench Press Description here.", "Sets: 5", "Reps: 5", "https://www.youtube.com/watch?v=-MAABwVKxok&ab_channel=MindPumpTV");
+
     }
 
     public View.OnClickListener b1Listener = v -> {
@@ -63,5 +96,6 @@ public class Exercise extends AppCompatActivity {
 
     private void exerciseDone(){
         //FIXME -- add functionality
+        finish();
     }
 }
