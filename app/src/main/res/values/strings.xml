@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">spotter</string>
+    <string name="title_activity_add_exercise">AddExercise</string>
 </resources>
