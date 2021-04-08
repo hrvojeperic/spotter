@@ -3,6 +3,7 @@ package com.codingproject.spotter;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class ChooseMuscleActivity extends AppCompatActivity {
@@ -30,32 +31,50 @@ public class ChooseMuscleActivity extends AppCompatActivity {
 
         // chest card handler
         chestCard.setOnClickListener(v -> {
-            // TODO: Start chest exercise activity
+            // start chest exercise activity
+            Intent i = new Intent(this, Exercise.class);
+            i.putExtra("muscle", "chest");
+            startActivity(i);
         });
 
         // arm card handler
         armCard.setOnClickListener(v -> {
-            // TODO: Start arm exercise activity
+            // start arm exercise activity
+            Intent i = new Intent(this, Exercise.class);
+            i.putExtra("muscle", "arm");
+            startActivity(i);
         });
 
         // shoulder card handler
         shoulderCard.setOnClickListener(v -> {
-            // TODO: Start shoulder exercise activity
+            // start shoulder exercise activity
+            Intent i = new Intent(this, Exercise.class);
+            i.putExtra("muscle", "shoulder");
+            startActivity(i);
         });
 
         // back card handler
         backCard.setOnClickListener(v -> {
-            // TODO: Start back exercise activity
+            // start back exercise activity
+            Intent i = new Intent(this, Exercise.class);
+            i.putExtra("muscle", "back");
+            startActivity(i);
         });
 
         // legs card handler
         legsCard.setOnClickListener(v -> {
-            // TODO: Start legs exercise activity
+            // start legs exercise activity
+            Intent i = new Intent(this, Exercise.class);
+            i.putExtra("muscle", "legs");
+            startActivity(i);
         });
 
         // abs card handler
         absCard.setOnClickListener(v -> {
-            // TODO: Start abs exercise activity
+            // start abs exercise activity
+            Intent i = new Intent(this, Exercise.class);
+            i.putExtra("muscle", "abs");
+            startActivity(i);
         });
     }
 }
