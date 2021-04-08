@@ -15,7 +15,7 @@ public class AddExercise extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise);
-        AutoCompleteTextView editText = findViewById(R.id.autoCompleteTextView);
+        AutoCompleteTextView editText = findViewById(R.id.editTextMuscle);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Muscles);
         editText.setAdapter(adapter);
     }
