@@ -71,7 +71,7 @@
             android:id="@+id/startExerciseButton"
             android:layout_width="412dp"
             android:layout_height="150dp"
-            android:layout_gravity="center"
+            android:layout_weight="1.0"
             android:background="@drawable/blue_fill__rounded_color"
             android:gravity="center"
             android:text="Start Exercise"
