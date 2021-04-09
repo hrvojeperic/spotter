@@ -3,9 +3,11 @@ package com.codingproject.spotter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentUris;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,7 +45,13 @@ public class MainActivity extends AppCompatActivity {
 
         // calendar handler
         calendarButton.setOnClickListener(v -> {
-
+            long startMillis = System.currentTimeMillis();
+            Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+            builder.appendPath("time");
+            ContentUris.appendId(builder, startMillis);
+            Intent intent = new Intent(Intent.ACTION_VIEW)
+                    .setData(builder.build());
+            startActivity(intent);
         });
 
     }
