@@ -12,14 +12,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
     // declare class variables
-    Button startExerciseButton;
-    Button restDayButton;
-    Button calendarButton;
+    TextView startExerciseButton;
+    TextView restDayButton;
+    TextView calendarButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

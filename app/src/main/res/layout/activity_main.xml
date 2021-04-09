@@ -3,24 +3,31 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#E3D5FB">
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="spotter"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:textSize="70sp"
-        android:textColor="@color/black"
-        android:gravity="center" />
+        android:layout_height="273dp"
+        android:background="@drawable/blue_bg">
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="spotter"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:textSize="70sp"
+            android:textColor="@color/white"
+            android:gravity="center" />
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/titleTextView"
+        android:layout_below="@+id/frameLayout"
         android:gravity="center">
 
         <LinearLayout
@@ -28,42 +35,58 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="50dp"
+            android:paddingTop="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp">
 
-            <Button
+            <TextView
                 android:id="@+id/restDayButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/blue_fill__rounded_color"
+                android:gravity="center"
+                android:text="Rest Day"
                 android:layout_weight="1.0"
-                android:text="Rest Day" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-            <Button
+            <TextView
                 android:id="@+id/calendarButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/blue_fill__rounded_color"
+                android:gravity="center"
+                android:text="Calendar"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1.0"
-                android:text="Calendar" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
-        <Button
+        <TextView
             android:id="@+id/startExerciseButton"
-            android:layout_width="400dp"
+            android:layout_width="412dp"
             android:layout_height="150dp"
-            android:layout_weight="1.0"
+            android:layout_gravity="center"
+            android:background="@drawable/blue_fill__rounded_color"
             android:gravity="center"
-            android:text="Start Exercise" />
+            android:text="Start Exercise"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="streak 8"
+            android:layout_marginTop="25dp"
             android:textStyle="bold"
-            android:layout_marginTop="60dp"
-            android:textSize="50sp" />
+            android:textSize="50sp"
+            android:textColor="@color/main_blue"
+            android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
 </RelativeLayout>
