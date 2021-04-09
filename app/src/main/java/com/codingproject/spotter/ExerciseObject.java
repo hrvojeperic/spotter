@@ -63,13 +63,13 @@ public class ExerciseObject {
     }
 
     // Constructor
-    public ExerciseObject(String muscleGroup,String exerciseName, String description, String sets, String reps, URL videoUrl ){
+    public ExerciseObject(String muscleGroup,String exerciseName, String description, String sets, String reps ){
         this.muscleGroup = muscleGroup;
         this.exerciseName = exerciseName;
         this.description = description;
         this.sets = sets;
         this.reps = reps;
-        this.videoUrl = videoUrl;
+        // FIXME -- add URL
     }
 
 }
