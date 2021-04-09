@@ -13,7 +13,7 @@
         android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Youtube Link"
-        android:inputType="textMultiLine"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +85,8 @@
 
     <Button
         android:id="@+id/addExerciseBtn"
-        android:layout_width="177dp"
-        android:layout_height="105dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="216dp"
         android:text="Submit"
         app:backgroundTint="@android:color/holo_blue_light"
