@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E3D5FB">
+    android:background="@color/secondary_color">
 
     <TextView
         android:id="@+id/textView1ex"
@@ -80,6 +80,7 @@
                 android:layout_marginTop="64dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/main_blue"
                 android:text="Generate" />
 
             <Button
@@ -88,6 +89,7 @@
                 android:layout_height="55dp"
                 android:layout_weight="1"
                 android:layout_marginTop="64dp"
+                android:backgroundTint="@color/main_blue"
                 android:text="Done" />
 
         </LinearLayout>
