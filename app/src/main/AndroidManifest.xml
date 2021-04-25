@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Spotter">
-        <activity android:name=".FaqActivity" />
-        <activity android:name=".ChooseMuscleActivity" />
-        <activity android:name=".AddExercise" />
-        <activity android:name=".Exercise" />
+        <activity android:name=".FaqActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ChooseMuscleActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".AddExercise"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Exercise"
+            android:parentActivityName=".ChooseMuscleActivity"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity" >
             <intent-filter>

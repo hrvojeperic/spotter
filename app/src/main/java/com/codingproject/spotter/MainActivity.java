@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout calendarButton;
     LinearLayout addExerciseButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // set up menu
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.expandable_faq, menu);
+        menuInflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.faqItem:
                 Intent faqIntent = new Intent(this, FaqActivity.class);
                 startActivity(faqIntent);
+                break;
+            case R.id.homeItem:
+                // do nothing
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
