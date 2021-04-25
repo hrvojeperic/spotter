@@ -17,6 +17,10 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+
 public class Exercise extends AppCompatActivity {
 
     // UI Elements
@@ -27,15 +31,16 @@ public class Exercise extends AppCompatActivity {
     protected TextView  textView5;
     protected Button    button1;
     protected Button    button2;
-    protected ImageView imageView1;
+    private YouTubePlayerView youTubePlayerView;
+
 
     // Data objects
-    ExerciseObject chestExercises[];
-    ExerciseObject armExercises[];
-    ExerciseObject legExercises[];
-    ExerciseObject abExercises[];
-    ExerciseObject shoulderExercises[];
-    ExerciseObject backExercises[];
+    ExerciseObject chestExercises[] = new ExerciseObject[3];
+    ExerciseObject armExercises[] = new ExerciseObject[3];
+    ExerciseObject legExercises[] = new ExerciseObject[3];
+    ExerciseObject abExercises[]= new ExerciseObject[3];
+    ExerciseObject shoulderExercises[]= new ExerciseObject[3];
+    ExerciseObject backExercises[]= new ExerciseObject[3];
     // Chest
     ExerciseObject benchPress;
     ExerciseObject inclinePress;
@@ -46,16 +51,25 @@ public class Exercise extends AppCompatActivity {
     ExerciseObject tricepPushup;
     // Legs
     ExerciseObject lunges;
+    ExerciseObject squat;
+    ExerciseObject calfRaise;
     // Abs
     ExerciseObject crunches;
+    ExerciseObject plank;
+    ExerciseObject legRaise;
     // Shoulder
     ExerciseObject lateralRaise;
+    ExerciseObject dbShrug;
+    ExerciseObject dbPress;
     // Back
     ExerciseObject chinUp;
-
+    ExerciseObject pullup;
+    ExerciseObject deadlift;
     //Intent extra
     String groupSelected;
 
+    //Keep track of exercise index within group array
+    int exerciseIndex;
 
 
 
@@ -74,7 +88,8 @@ public class Exercise extends AppCompatActivity {
         textView5   = (TextView) findViewById(R.id.textView5ex); // Exercise name
         button1     = (Button) findViewById(R.id.button1ex);     // Generate
         button2     = (Button) findViewById(R.id.button2ex);     // Done
-        imageView1  = (ImageView) findViewById(R.id.imageView1ex);
+        youTubePlayerView  = findViewById(R.id.youtubePlayerView);          // Embedded YouTube Player
+        getLifecycle().addObserver(youTubePlayerView);
 
         // Get intent extra
         // Muscle group selected by user
@@ -85,73 +100,119 @@ public class Exercise extends AppCompatActivity {
         button1.setOnClickListener(b1Listener);
         button2.setOnClickListener(b2Listener);
 
-        // Instantiate Exercise Objects
-        benchPress  = new ExerciseObject("Chest", "Bench Press", "Bench Press Description here.", "Sets: 5", "Reps: 5");
-        bicepCurl   = new ExerciseObject("Arm", "Bicep Curl", "Bicep curl description here.", "Sets: 3", "Reps: 8");
-        lunges      = new ExerciseObject("Legs", "Lunges", "Lunges description here", "Sets: 3", "Reps: 12");
-        crunches    = new ExerciseObject("Abs", "Crunches", "Crunches description here", "Sets: 5", "Reps: 20");
-        chinUp      = new ExerciseObject("Back", "Chin up", "Chin up description here.", "Sets: 3", "Reps: 8");
-        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Lateral raise description here", "Sets: 3", "Reps: 8");
+        // Start with first exercise in respective muscle group array
+        exerciseIndex = 0;
 
-        switch (groupSelected){
-            case "chest":
-                textView1.setText(benchPress.getMuscleGroup());
-                textView2.setText(benchPress.getDescription());
-                textView3.setText(benchPress.getSets());
-                textView4.setText(benchPress.getReps());
-                textView5.setText(benchPress.getExerciseName());
-                break;
-            case "arm":
-                textView1.setText(bicepCurl.getMuscleGroup());
-                textView2.setText(bicepCurl.getDescription());
-                textView3.setText(bicepCurl.getSets());
-                textView4.setText(bicepCurl.getReps());
-                textView5.setText(bicepCurl.getExerciseName());
-                break;
-            case "shoulder":
-                textView1.setText(lateralRaise.getMuscleGroup());
-                textView2.setText(lateralRaise.getDescription());
-                textView3.setText(lateralRaise.getSets());
-                textView4.setText(lateralRaise.getReps());
-                textView5.setText(lateralRaise.getExerciseName());
-                break;
-            case "back":
-                textView1.setText(chinUp.getMuscleGroup());
-                textView2.setText(chinUp.getDescription());
-                textView3.setText(chinUp.getSets());
-                textView4.setText(chinUp.getReps());
-                textView5.setText(chinUp.getExerciseName());
-                break;
-            case "legs":
-                textView1.setText(lunges.getMuscleGroup());
-                textView2.setText(lunges.getDescription());
-                textView3.setText(lunges.getSets());
-                textView4.setText(lunges.getReps());
-                textView5.setText(lunges.getExerciseName());
-                break;
-            case "abs":
-                textView1.setText(crunches.getMuscleGroup());
-                textView2.setText(crunches.getDescription());
-                textView3.setText(crunches.getSets());
-                textView4.setText(crunches.getReps());
-                textView5.setText(crunches.getExerciseName());
-                break;
-            default:
-                Log.i("ExerciseActivity", "Missing Intent Extra - Muscle group not selected");
-        }
+        // Instantiate Exercise Objects
+        //Chest
+        benchPress      = new ExerciseObject("Chest", "Bench Press", "Bench Press Description here.", "Sets: 5", "Reps: 5", "-MAABwVKxok");
+        inclinePress    = new ExerciseObject("Chest", "Incline Press", "Incline Press Description here", "Sets: 3", "Reps: 3", "0G2_XV7slIg");
+        pushup          = new ExerciseObject("Chest", "Push-up", "Push-up Description here","Sets: 3", "Reps: 8","MO10KOoQx5E");
+        chestExercises[0] = benchPress;
+        chestExercises[1] = inclinePress;
+        chestExercises[2] = pushup;
+        //Arm
+        bicepCurl       = new ExerciseObject("Arm", "Bicep Curl", "Bicep curl description here.", "Sets: 3", "Reps: 8","in7PaeYlhrM");
+        hammerCurl      = new ExerciseObject("Arm", "Hammer Curl", "Hammer Curl description here","Sets: 3","Reps: 8", "7jqi2qWAUJk");
+        tricepPushup    = new ExerciseObject("Arm", "Tricep Push-up", "Tricep Push-up description here", "Sets: 3", "Reps: 12", "kZi0j-7rDe8");
+        armExercises[0] = bicepCurl;
+        armExercises[1] = hammerCurl;
+        armExercises[2] = tricepPushup;
+        //Legs
+        lunges          = new ExerciseObject("Legs", "Lunges", "Lunges description here", "Sets: 3", "Reps: 12","wrwwXE_x-pQ");
+        squat           = new ExerciseObject("Legs", "Squat", "Squat description here", "Sets: 5", "Reps: 12", "aclHkVaku9U");
+        calfRaise       = new ExerciseObject("Legs", "Calf Raise", "Calf Raise description here", "Sets: 5", "Reps: 20", "-M4-G8p8fmc");
+        legExercises[0] = lunges;
+        legExercises[1] = squat;
+        legExercises[2] = calfRaise;
+        //Abs
+        crunches    = new ExerciseObject("Abs", "Crunches", "Crunches description here", "Sets: 5", "Reps: 20","Xyd_fa5zoEU&ab_channel=LIVESTRONG.COM");
+        plank       = new ExerciseObject("Abs", "Plank", "Plank description here", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM&ab_channel=EmergeOrtho");
+        legRaise    = new ExerciseObject("Abs", "Leg Raise", "Leg Raise description here", "Sets: 3","Reps: 12", "JB2oyawG9KI&ab_channel=LIVESTRONG.COM");
+        abExercises[0] = crunches;
+        abExercises[1] = plank;
+        abExercises[2] = legRaise;
+        //Back
+        chinUp      = new ExerciseObject("Back", "Chin-up", "Chin-up description here.", "Sets: 3", "Reps: 8","mRy9m2Q9_1I&ab_channel=KILOStrengthSociety");
+        pullup      = new ExerciseObject("Back", "Pullup", "Pullup description here","Sets: 3", "Reps: 8", "XB_7En-zf_M&ab_channel=FitnessFAQs");
+        deadlift    = new ExerciseObject("Back","Deadlift", "Deadlift description here", "Sets: 3", "Reps: 5","r4MzxtBKyNE&ab_channel=Men%27sHealth");
+        backExercises[0] = chinUp;
+        backExercises[1] = pullup;
+        backExercises[2] = deadlift;
+        //Shoulder
+        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Lateral raise description here", "Sets: 3", "Reps: 8","geenhiHju-o&ab_channel=LIVESTRONG.COM");
+        dbShrug         = new ExerciseObject("Shoulder", "Dumbbell Shrug", "Dumbbell shrug description here", "Sets: 3", "Reps: 12", "g6qbq4Lf1FI&ab_channel=LIVESTRONG.COM");
+        dbPress         = new ExerciseObject("Shoulder", "Dumbbell Press", "Dumbbell Press description here", "Sets: 3", "Reps: 12", "B-aVuyhvLHU&ab_channel=LIVESTRONG.COM");
+        shoulderExercises[0] = lateralRaise;
+        shoulderExercises[1] = dbShrug;
+        shoulderExercises[2] = dbPress;
+
+        //Update UI with exercise
+        generateNewExercise(groupSelected, exerciseIndex);
 
     }
 
     public View.OnClickListener b1Listener = v -> {
-        generateNewExercise();
+        generateNewExercise(groupSelected, exerciseIndex);
+        exerciseIndex++;        //FIXME - will this update index?
     };
 
     public View.OnClickListener b2Listener = v -> {
         exerciseDone();
     };
 
-    private void generateNewExercise(){
-        //FIXME -- add functionality
+    private void generateNewExercise(String muscleGroup, int exerciseIndex){
+
+        ExerciseObject newExercise;
+        int index;
+
+        if(exerciseIndex == 2){
+            index = 0;              // Go back to beginning of array once last exercise has been reached
+        }
+        else{
+            index = exerciseIndex;
+        }
+
+        // Select an exercise based on muscle group selected
+        switch (muscleGroup){
+            case "chest":
+                newExercise = chestExercises[index];
+                break;
+            case "arm":
+                newExercise = armExercises[index];
+                break;
+            case "shoulder":
+                newExercise = shoulderExercises[index];
+                break;
+            case "back":
+                newExercise = backExercises[index];
+                break;
+            case "legs":
+                newExercise = legExercises[index];
+                break;
+            case "abs":
+                newExercise = abExercises[index];
+                break;
+            default:
+                newExercise = benchPress;       // if an error occurs, make the generated exercise a bench press
+                Log.i("ExerciseActivity","Error in generateNewExercise method" );
+        }
+
+        // Update UI
+        textView1.setText(newExercise.getMuscleGroup());
+        textView2.setText(newExercise.getDescription());
+        textView3.setText(newExercise.getSets());
+        textView4.setText(newExercise.getReps());
+        textView5.setText(newExercise.getExerciseName());
+
+        // Update YouTube video
+        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(YouTubePlayer youTubePlayer) {
+                String vidId = newExercise.getVideoId();
+                youTubePlayer.cueVideo(vidId,0);
+            }
+        });
     }
 
     private void exerciseDone(){

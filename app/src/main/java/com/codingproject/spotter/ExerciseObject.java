@@ -9,7 +9,7 @@ public class ExerciseObject {
     private String description;
     private String sets;
     private String reps;
-    private URL    videoUrl;
+    private String  videoId;
 
 
     // Getters
@@ -33,8 +33,8 @@ public class ExerciseObject {
         return reps;
     }
 
-    public URL getVideoUrl() {
-        return videoUrl;
+    public String getVideoId() {
+        return videoId;
     }
 
     // Setters
@@ -58,18 +58,18 @@ public class ExerciseObject {
         this.reps = reps;
     }
 
-    public void setVideoUrl(URL videoUrl) {
-        this.videoUrl = videoUrl;
+    public void setVideoId(String videoUrl) {
+        this.videoId = videoUrl;
     }
 
     // Constructor
-    public ExerciseObject(String muscleGroup,String exerciseName, String description, String sets, String reps ){
+    public ExerciseObject(String muscleGroup,String exerciseName, String description, String sets, String reps, String videoId){
         this.muscleGroup = muscleGroup;
         this.exerciseName = exerciseName;
         this.description = description;
         this.sets = sets;
         this.reps = reps;
-        // FIXME -- add URL
+        this.videoId = videoId;
     }
 
 }
