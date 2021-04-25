@@ -38,7 +38,7 @@
         android:layout_width="313dp"
         android:layout_height="41dp"
         android:layout_marginTop="44dp"
-        android:completionThreshold="1"
+        android:completionThreshold="0"
         android:hint="Select A Muscle Group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
