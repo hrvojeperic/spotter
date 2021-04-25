@@ -6,94 +6,109 @@
     android:layout_height="match_parent"
     tools:context=".AddExercise"
     android:background="@color/secondary_color">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextLink"
-        android:layout_width="313dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="Youtube Link"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDesc" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="218dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:text="Add Exercise"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="218dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:text="Add Exercise"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <AutoCompleteTextView
+                android:id="@+id/editTextMuscle"
+                android:layout_width="313dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="60dp"
+                android:completionThreshold="0"
+                android:hint="Select A Muscle Group"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <EditText
+                android:id="@+id/editTextDesc"
+                android:layout_width="313dp"
+                android:layout_height="69dp"
+                android:layout_marginTop="50dp"
+                android:ems="10"
+                android:hint="Title: Description"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextMuscle" />
 
-    <AutoCompleteTextView
-        android:id="@+id/editTextMuscle"
-        android:layout_width="313dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="44dp"
-        android:completionThreshold="1"
-        android:hint="Select A Muscle Group"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/editTextSets"
-        android:layout_width="126dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="72dp"
-        android:ems="10"
-        android:hint="Sets"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/editTextReps"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLink" />
+            <EditText
+                android:id="@+id/editTextLink"
+                android:layout_width="313dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="50dp"
+                android:ems="10"
+                android:hint="Youtube Link"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextDesc" />
 
-    <EditText
-        android:id="@+id/editTextReps"
-        android:layout_width="126dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="72dp"
-        android:ems="10"
-        android:hint="Reps"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextSets"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLink" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:gravity="center">
 
-    <EditText
-        android:id="@+id/editTextDesc"
-        android:layout_width="313dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="Title: Description"
-        android:inputType="textMultiLine"
-        android:scrollbars="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMuscle" />
+                <EditText
+                    android:id="@+id/editTextSets"
+                    android:layout_width="126dp"
+                    android:layout_height="52dp"
+                    android:layout_marginRight="28dp"
+                    android:ems="10"
+                    android:hint="Sets"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toStartOf="@+id/editTextReps"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextLink" />
 
-    <Button
-        android:id="@+id/addExerciseBtn"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:text="Submit"
-        app:backgroundTint="@android:color/holo_blue_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLink"
-        android:backgroundTint="@color/main_blue"/>
+                <EditText
+                    android:id="@+id/editTextReps"
+                    android:layout_width="126dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="28dp"
+                    android:ems="10"
+                    android:hint="Reps"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/editTextSets"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextLink" />
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/addExerciseBtn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:backgroundTint="@color/main_blue"
+                android:text="Submit"
+                app:backgroundTint="@android:color/holo_blue_light" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

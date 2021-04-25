@@ -2,20 +2,19 @@ package com.codingproject.spotter;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Context;
-import android.os.Bundle;
+
 import android.content.Intent;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.Button;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -79,6 +78,7 @@ public class Exercise extends AppCompatActivity {
 
         //Inflate layout from res folder
         setContentView(R.layout.exercise_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Bind UI elements to fields
         textView1   = (TextView) findViewById(R.id.textView1ex); // Muscle group
@@ -218,5 +218,28 @@ public class Exercise extends AppCompatActivity {
     private void exerciseDone(){
         //FIXME -- add functionality
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // set up menu
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.faqItem:
+                Intent faqIntent = new Intent(this, FaqActivity.class);
+                startActivity(faqIntent);
+                break;
+            case R.id.homeItem:
+                Intent homeIntent = new Intent(this, MainActivity.class);
+                startActivity(homeIntent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

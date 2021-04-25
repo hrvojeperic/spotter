@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/addExerciseItem"
-        android:title="Add Exercise"
-        app:showAsAction="never" />
+        android:id="@+id/homeItem"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"
+        app:showAsAction="ifRoom|collapseActionView" />
 </menu>
