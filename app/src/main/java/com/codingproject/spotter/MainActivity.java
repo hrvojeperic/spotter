@@ -11,12 +11,8 @@ import android.provider.CalendarContract;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout startExerciseButton;
     LinearLayout restDayButton;
     LinearLayout calendarButton;
+    LinearLayout addExerciseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +31,19 @@ public class MainActivity extends AppCompatActivity {
         startExerciseButton = findViewById(R.id.startExerciseButton);
         restDayButton = findViewById(R.id.restDayButton);
         calendarButton = findViewById(R.id.calendarButton);
+        addExerciseButton = findViewById(R.id.addExerciseButton);
 
         // start exercise handler
         startExerciseButton.setOnClickListener(v -> {
             // start choose muscle group activity
             Intent chooseMuscleIntent = new Intent(this, ChooseMuscleActivity.class);
             startActivity(chooseMuscleIntent);
+        });
+
+        addExerciseButton.setOnClickListener(v -> {
+            // start add exercise activity
+            Intent addExerciseIntent = new Intent(this, AddExercise.class);
+            startActivity(addExerciseIntent);
         });
 
         // rest day handler
@@ -64,17 +68,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // set up menu
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.expandable_add_exercise, menu);
+        menuInflater.inflate(R.menu.expandable_faq, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.addExerciseItem:
-                // TODO: START EXERCISE INTENT HERE
-                Intent addExerciseIntent = new Intent(this, AddExercise.class);
-                startActivity(addExerciseIntent);
+            case R.id.faqItem:
+                Intent faqIntent = new Intent(this, FaqActivity.class);
+                startActivity(faqIntent);
         }
         return super.onOptionsItemSelected(item);
     }
