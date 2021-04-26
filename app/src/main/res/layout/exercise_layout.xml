@@ -13,6 +13,8 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:fontFamily="monospace"
+        android:textColor="@color/main_blue"
         android:layout_marginTop="20dp" />
 
     <LinearLayout
@@ -29,6 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:text="Bench Press"
+            android:fontFamily="monospace"
+            android:textColor="@color/main_blue"
             android:textSize="20sp" />
 
         <TextView
@@ -38,6 +42,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="76dp"
             android:text="Description: Description goes here."
+            android:fontFamily="monospace"
+            android:textColor="@color/main_blue"
             android:textSize="20sp" />
 
         <TextView
@@ -47,6 +53,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="284dp"
             android:text="Sets: # sets"
+            android:fontFamily="monospace"
+            android:textColor="@color/main_blue"
             android:textSize="20sp" />
 
         <TextView
@@ -55,12 +63,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Reps: # reps"
+            android:fontFamily="monospace"
+            android:textColor="@color/main_blue"
             android:textSize="20sp"/>
 
-        <ImageView
-                android:id="@+id/imageView1ex"
-                android:layout_width="289dp"
-                android:layout_height="159dp"
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtubePlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_gravity="center"
                 app:srcCompat="@android:drawable/presence_video_busy" />
@@ -81,6 +91,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="10dp"
                 android:backgroundTint="@color/main_blue"
+                android:fontFamily="monospace"
                 android:text="Generate" />
 
             <Button
@@ -90,6 +101,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="64dp"
                 android:backgroundTint="@color/main_blue"
+                android:fontFamily="monospace"
                 android:text="Done" />
 
         </LinearLayout>
