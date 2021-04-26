@@ -50,8 +50,18 @@ public class MainActivity extends AppCompatActivity {
         // rest day handler
         restDayButton.setOnClickListener(v -> {
 //            Toast.makeText(this, "Rest Day Chosen!", Toast.LENGTH_LONG).show();
+            long myTime = System.currentTimeMillis()-120000;
+            Intent intent = new Intent(Intent.ACTION_INSERT)
+                    .setData(CalendarContract.Events.CONTENT_URI)
+                    .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, myTime)
+                    .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, myTime)
+                    .putExtra(CalendarContract.Events.TITLE, "Rest Day")
+                    .putExtra(CalendarContract.Events.DESCRIPTION, "Time for rest")
+                    .putExtra(CalendarContract.Events.EVENT_LOCATION, "N/A");
+            startActivity(intent);
             openDialog();
         });
+
 
         // calendar handler
         calendarButton.setOnClickListener(v -> {
