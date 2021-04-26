@@ -30,7 +30,10 @@ public class Exercise extends AppCompatActivity {
     protected TextView  textView5;
     protected Button    button1;
     protected Button    button2;
+    protected boolean   firstTime = true;
     private YouTubePlayerView youTubePlayerView;
+    private YouTubePlayer myPlayer;
+    AbstractYouTubePlayerListener listener;
 
 
     // Data objects
@@ -91,6 +94,9 @@ public class Exercise extends AppCompatActivity {
         youTubePlayerView  = findViewById(R.id.youtubePlayerView);          // Embedded YouTube Player
         getLifecycle().addObserver(youTubePlayerView);
 
+
+
+
         // Get intent extra
         // Muscle group selected by user
         Intent i = getIntent();
@@ -126,26 +132,27 @@ public class Exercise extends AppCompatActivity {
         legExercises[1] = squat;
         legExercises[2] = calfRaise;
         //Abs
-        crunches    = new ExerciseObject("Abs", "Crunches", "Crunches description here", "Sets: 5", "Reps: 20","Xyd_fa5zoEU&ab_channel=LIVESTRONG.COM");
-        plank       = new ExerciseObject("Abs", "Plank", "Plank description here", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM&ab_channel=EmergeOrtho");
-        legRaise    = new ExerciseObject("Abs", "Leg Raise", "Leg Raise description here", "Sets: 3","Reps: 12", "JB2oyawG9KI&ab_channel=LIVESTRONG.COM");
+        crunches    = new ExerciseObject("Abs", "Crunches", "Crunches description here", "Sets: 5", "Reps: 20","Xyd_fa5zoEU");
+        plank       = new ExerciseObject("Abs", "Plank", "Plank description here", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM");
+        legRaise    = new ExerciseObject("Abs", "Leg Raise", "Leg Raise description here", "Sets: 3","Reps: 12", "JB2oyawG9KI");
         abExercises[0] = crunches;
         abExercises[1] = plank;
         abExercises[2] = legRaise;
         //Back
-        chinUp      = new ExerciseObject("Back", "Chin-up", "Chin-up description here.", "Sets: 3", "Reps: 8","mRy9m2Q9_1I&ab_channel=KILOStrengthSociety");
-        pullup      = new ExerciseObject("Back", "Pullup", "Pullup description here","Sets: 3", "Reps: 8", "XB_7En-zf_M&ab_channel=FitnessFAQs");
-        deadlift    = new ExerciseObject("Back","Deadlift", "Deadlift description here", "Sets: 3", "Reps: 5","r4MzxtBKyNE&ab_channel=Men%27sHealth");
+        chinUp      = new ExerciseObject("Back", "Chin-up", "Chin-up description here.", "Sets: 3", "Reps: 8","mRy9m2Q9_1I");
+        pullup      = new ExerciseObject("Back", "Pullup", "Pullup description here","Sets: 3", "Reps: 8", "XB_7En-zf_M");
+        deadlift    = new ExerciseObject("Back","Deadlift", "Deadlift description here", "Sets: 3", "Reps: 5","r4MzxtBKyNE");
         backExercises[0] = chinUp;
         backExercises[1] = pullup;
         backExercises[2] = deadlift;
         //Shoulder
-        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Lateral raise description here", "Sets: 3", "Reps: 8","geenhiHju-o&ab_channel=LIVESTRONG.COM");
-        dbShrug         = new ExerciseObject("Shoulder", "Dumbbell Shrug", "Dumbbell shrug description here", "Sets: 3", "Reps: 12", "g6qbq4Lf1FI&ab_channel=LIVESTRONG.COM");
-        dbPress         = new ExerciseObject("Shoulder", "Dumbbell Press", "Dumbbell Press description here", "Sets: 3", "Reps: 12", "B-aVuyhvLHU&ab_channel=LIVESTRONG.COM");
+        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Lateral raise description here", "Sets: 3", "Reps: 8","geenhiHju-o");
+        dbShrug         = new ExerciseObject("Shoulder", "Dumbbell Shrug", "Dumbbell shrug description here", "Sets: 3", "Reps: 12", "g6qbq4Lf1FI");
+        dbPress         = new ExerciseObject("Shoulder", "Dumbbell Press", "Dumbbell Press description here", "Sets: 3", "Reps: 12", "B-aVuyhvLHU");
         shoulderExercises[0] = lateralRaise;
         shoulderExercises[1] = dbShrug;
         shoulderExercises[2] = dbPress;
+
 
         //Update UI with exercise
         generateNewExercise(groupSelected, exerciseIndex);
@@ -153,24 +160,26 @@ public class Exercise extends AppCompatActivity {
     }
 
     public View.OnClickListener b1Listener = v -> {
+        firstTime = false;
+        exerciseIndex++;
         generateNewExercise(groupSelected, exerciseIndex);
-        exerciseIndex++;        //FIXME - will this update index?
     };
 
     public View.OnClickListener b2Listener = v -> {
         exerciseDone();
     };
 
-    private void generateNewExercise(String muscleGroup, int exerciseIndex){
+    private void generateNewExercise(String muscleGroup, int exIndex){
 
         ExerciseObject newExercise;
         int index;
 
-        if(exerciseIndex == 2){
-            index = 0;              // Go back to beginning of array once last exercise has been reached
+        if(exIndex > 2){
+            this.exerciseIndex = 0;
+            index = exerciseIndex;              // Go back to beginning of array once last exercise has been reached
         }
         else{
-            index = exerciseIndex;
+            index = exIndex;
         }
 
         // Select an exercise based on muscle group selected
@@ -205,14 +214,27 @@ public class Exercise extends AppCompatActivity {
         textView4.setText(newExercise.getReps());
         textView5.setText(newExercise.getExerciseName());
 
-        // Update YouTube video
-        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
-            @Override
-            public void onReady(YouTubePlayer youTubePlayer) {
-                String vidId = newExercise.getVideoId();
-                youTubePlayer.cueVideo(vidId,0);
-            }
-        });
+        //youTubePlayerView.removeYouTubePlayerListener();
+
+        if(firstTime) {
+            listener = new AbstractYouTubePlayerListener() {
+                @Override
+                public void onReady(YouTubePlayer youTubePlayer) {
+                    myPlayer = youTubePlayer;
+                    String vidId = newExercise.getVideoId();
+                    Log.i("onReady", "VidId is: " + vidId);
+                    myPlayer.cueVideo(vidId, 0);
+                }
+            };
+            // Update YouTube video
+            youTubePlayerView.addYouTubePlayerListener(listener);
+        }
+        else{
+            myPlayer.cueVideo(newExercise.getVideoId(),0);
+        }
+
+
+
     }
 
     private void exerciseDone(){
