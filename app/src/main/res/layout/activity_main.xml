@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <RelativeLayout
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/white">
-
-<!--    <include android:id="@+id/tool" layout="@layout/toolbar"/>-->
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -43,24 +44,27 @@
             android:paddingBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/restDayButton"
+                android:id="@+id/addExerciseButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
                 android:layout_weight="1.0"
-                android:background="@drawable/blue_fill__rounded_color" >
+                android:background="@drawable/blue_fill__rounded_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/rest_icon"
+                    android:src="@drawable/ic_baseline_add_24"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Rest Day"
+                    android:text="Add Exercise"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -72,7 +76,10 @@
                 android:orientation="vertical"
                 android:layout_weight="1.0"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/blue_fill__rounded_color" >
+                android:background="@drawable/blue_fill__rounded_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="65dp"
@@ -100,24 +107,27 @@
             android:paddingBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/addExerciseButton"
+                android:id="@+id/restDayButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
                 android:layout_weight="1.0"
-                android:background="@drawable/blue_fill__rounded_color" >
+                android:background="@drawable/blue_fill__rounded_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_baseline_add_24"
+                    android:src="@drawable/rest_icon"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Add Exercise"
+                    android:text="Rest Day"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -129,7 +139,10 @@
                 android:orientation="vertical"
                 android:layout_weight="1.0"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/blue_fill__rounded_color" >
+                android:background="@drawable/blue_fill__rounded_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="65dp"
@@ -174,3 +187,4 @@
 
     </LinearLayout>
 </RelativeLayout>
+</ScrollView>
