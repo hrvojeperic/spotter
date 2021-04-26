@@ -111,16 +111,16 @@ public class Exercise extends AppCompatActivity {
 
         // Instantiate Exercise Objects
         //Chest
-        benchPress      = new ExerciseObject("Chest", "Bench Press", "Bench Press Description here.", "Sets: 5", "Reps: 5", "-MAABwVKxok");
-        inclinePress    = new ExerciseObject("Chest", "Incline Press", "Incline Press Description here", "Sets: 3", "Reps: 3", "0G2_XV7slIg");
-        pushup          = new ExerciseObject("Chest", "Push-up", "Push-up Description here","Sets: 3", "Reps: 8","MO10KOoQx5E");
+        benchPress      = new ExerciseObject("Chest", "Bench Press", "Lay your back on the bench. Push barbell away from chest.", "Sets: 5", "Reps: 5", "-MAABwVKxok");
+        inclinePress    = new ExerciseObject("Chest", "Incline Press", "Lay on bench at inclined angle. Push barbell away from chest.", "Sets: 3", "Reps: 3", "0G2_XV7slIg");
+        pushup          = new ExerciseObject("Chest", "Push-up", "Begin in prone position. Raise & lower body by pushing away from the ground.","Sets: 3", "Reps: 8","MO10KOoQx5E");
         chestExercises[0] = benchPress;
         chestExercises[1] = inclinePress;
         chestExercises[2] = pushup;
         //Arm
-        bicepCurl       = new ExerciseObject("Arm", "Bicep Curl", "Bicep curl description here.", "Sets: 3", "Reps: 8","in7PaeYlhrM");
-        hammerCurl      = new ExerciseObject("Arm", "Hammer Curl", "Hammer Curl description here","Sets: 3","Reps: 8", "7jqi2qWAUJk");
-        tricepPushup    = new ExerciseObject("Arm", "Tricep Push-up", "Tricep Push-up description here", "Sets: 3", "Reps: 12", "kZi0j-7rDe8");
+        bicepCurl       = new ExerciseObject("Arm", "Bicep Curl", "Stand with dumbbells in each hand with arms at your sides. Wrist should face away from body. Raise dumbbell by bending at the elbow. Reverse curl.", "Sets: 3", "Reps: 8","in7PaeYlhrM");
+        hammerCurl      = new ExerciseObject("Arm", "Hammer Curl", "Stand with dumbbells in each hand with arms at your sides. Wrist should face towards body. Raise dumbbell by bending the elbow. Reverse curl.","Sets: 3","Reps: 8", "7jqi2qWAUJk");
+        tricepPushup    = new ExerciseObject("Arm", "Tricep Push-up", "Begin in prone position. Place hands on floor & beneath chest. Raise & lower body by pushing away from the ground.", "Sets: 3", "Reps: 12", "kZi0j-7rDe8");
         armExercises[0] = bicepCurl;
         armExercises[1] = hammerCurl;
         armExercises[2] = tricepPushup;
@@ -146,9 +146,9 @@ public class Exercise extends AppCompatActivity {
         backExercises[1] = pullup;
         backExercises[2] = deadlift;
         //Shoulder
-        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Lateral raise description here", "Sets: 3", "Reps: 8","geenhiHju-o");
-        dbShrug         = new ExerciseObject("Shoulder", "Dumbbell Shrug", "Dumbbell shrug description here", "Sets: 3", "Reps: 12", "g6qbq4Lf1FI");
-        dbPress         = new ExerciseObject("Shoulder", "Dumbbell Press", "Dumbbell Press description here", "Sets: 3", "Reps: 12", "B-aVuyhvLHU");
+        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Stand with dumbbells in each hand and arms at side. Raise arms outwards until arms are near shoulder height.", "Sets: 3", "Reps: 8","geenhiHju-o");
+        dbShrug         = new ExerciseObject("Shoulder", "Dumbbell Shrug", "Stand with dumbbells in each hand and arms at side. Raise shoulders up and down.", "Sets: 3", "Reps: 12", "g6qbq4Lf1FI");
+        dbPress         = new ExerciseObject("Shoulder", "Dumbbell Press", "Lay on bench at inclined angle. Push dumbbell away from chest.", "Sets: 3", "Reps: 12", "B-aVuyhvLHU");
         shoulderExercises[0] = lateralRaise;
         shoulderExercises[1] = dbShrug;
         shoulderExercises[2] = dbPress;
