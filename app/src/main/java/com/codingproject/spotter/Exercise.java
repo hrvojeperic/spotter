@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+
+import java.util.Calendar;
 
 public class Exercise extends AppCompatActivity {
 
@@ -69,6 +72,8 @@ public class Exercise extends AppCompatActivity {
     ExerciseObject deadlift;
     //Intent extra
     String groupSelected;
+
+    ExerciseObject newExercise;
 
     //Keep track of exercise index within group array
     int exerciseIndex;
@@ -171,7 +176,7 @@ public class Exercise extends AppCompatActivity {
 
     private void generateNewExercise(String muscleGroup, int exIndex){
 
-        ExerciseObject newExercise;
+
         int index;
 
         if(exIndex > 2){
@@ -238,7 +243,15 @@ public class Exercise extends AppCompatActivity {
     }
 
     private void exerciseDone(){
-        //FIXME -- add functionality
+        long myTime = System.currentTimeMillis()-60000;
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, myTime)
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, myTime)
+                .putExtra(CalendarContract.Events.TITLE, groupSelected)
+                .putExtra(CalendarContract.Events.DESCRIPTION, "WOO DID EXERCISE!!")
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, "N/A");
+        startActivity(intent);
         finish();
     }
 
