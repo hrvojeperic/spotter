@@ -118,14 +118,14 @@ public class Exercise extends AppCompatActivity {
         //Chest
         benchPress      = new ExerciseObject("Chest", "Bench Press", "Lay your back on the bench. Push barbell away from chest.", "Sets: 5", "Reps: 5", "-MAABwVKxok");
         inclinePress    = new ExerciseObject("Chest", "Incline Press", "Lay on bench at inclined angle. Push barbell away from chest.", "Sets: 3", "Reps: 3", "0G2_XV7slIg");
-        pushup          = new ExerciseObject("Chest", "Push-up", "Begin in prone position. Raise & lower body by pushing away from the ground.","Sets: 3", "Reps: 8","MO10KOoQx5E");
+        pushup          = new ExerciseObject("Chest", "Push-up", "Raise & lower body by pushing away from the ground.","Sets: 3", "Reps: 8","MO10KOoQx5E");
         chestExercises[0] = benchPress;
         chestExercises[1] = inclinePress;
         chestExercises[2] = pushup;
         //Arm
-        bicepCurl       = new ExerciseObject("Arm", "Bicep Curl", "Stand with dumbbells in each hand with arms at your sides. Wrist should face away from body. Raise dumbbell by bending at the elbow. Reverse curl.", "Sets: 3", "Reps: 8","in7PaeYlhrM");
-        hammerCurl      = new ExerciseObject("Arm", "Hammer Curl", "Stand with dumbbells in each hand with arms at your sides. Wrist should face towards body. Raise dumbbell by bending the elbow. Reverse curl.","Sets: 3","Reps: 8", "7jqi2qWAUJk");
-        tricepPushup    = new ExerciseObject("Arm", "Tricep Push-up", "Begin in prone position. Place hands on floor & beneath chest. Raise & lower body by pushing away from the ground.", "Sets: 3", "Reps: 12", "kZi0j-7rDe8");
+        bicepCurl       = new ExerciseObject("Arm", "Bicep Curl", "Dumbbells in each hand with arms at sides. Raise dumbbell by bending at the elbow.", "Sets: 3", "Reps: 8","in7PaeYlhrM");
+        hammerCurl      = new ExerciseObject("Arm", "Hammer Curl", "Dumbbells in each hand with arms at sides. Raise dumbbell by bending the elbow.","Sets: 3","Reps: 8", "7jqi2qWAUJk");
+        tricepPushup    = new ExerciseObject("Arm", "Tricep Push-up", "Place hands on floor & beneath chest. Raise & lower body by pushing away from the ground.", "Sets: 3", "Reps: 12", "kZi0j-7rDe8");
         armExercises[0] = bicepCurl;
         armExercises[1] = hammerCurl;
         armExercises[2] = tricepPushup;
@@ -138,20 +138,20 @@ public class Exercise extends AppCompatActivity {
         legExercises[2] = calfRaise;
         //Abs
         crunches    = new ExerciseObject("Abs", "Crunches", "Lay flat on back with knees bent. Contract abs until you reach your knees.", "Sets: 5", "Reps: 20","Xyd_fa5zoEU");
-        plank       = new ExerciseObject("Abs", "Plank", "Lay flat on stomach then lift body up with only forearms and feet then hold this position.", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM");
+        plank       = new ExerciseObject("Abs", "Plank", "Lay flat on stomach then lift body up with only forearms and feet.", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM");
         legRaise    = new ExerciseObject("Abs", "Leg Raise", "Lay flat on back. Lift legs up and down while contracting abs.", "Sets: 3","Reps: 12", "JB2oyawG9KI");
         abExercises[0] = crunches;
         abExercises[1] = plank;
         abExercises[2] = legRaise;
         //Back
         chinUp      = new ExerciseObject("Back", "Chin-up", "Hang from bar with palms facing you. Then, lift you body until chin reaches bar.", "Sets: 3", "Reps: 8","mRy9m2Q9_1I");
-        pullup      = new ExerciseObject("Back", "Pullup", "Hang from bar with palms facing away from you. Then, lift you body until chin reaches bar.","Sets: 3", "Reps: 8", "XB_7En-zf_M");
-        deadlift    = new ExerciseObject("Back","Deadlift", "Start in squat position with back straight. Then, lift bar by driving up through legs.", "Sets: 3", "Reps: 5","r4MzxtBKyNE");
+        pullup      = new ExerciseObject("Back", "Pullup", "Hang from bar with palms facing away. Lift you body until chin reaches bar.","Sets: 3", "Reps: 8", "XB_7En-zf_M");
+        deadlift    = new ExerciseObject("Back","Deadlift", "Start in squat position with back straight. Lift bar by driving up through legs.", "Sets: 3", "Reps: 5","r4MzxtBKyNE");
         backExercises[0] = chinUp;
         backExercises[1] = pullup;
         backExercises[2] = deadlift;
         //Shoulder
-        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Stand with dumbbells in each hand and arms at side. Raise arms outwards until arms are near shoulder height.", "Sets: 3", "Reps: 8","geenhiHju-o");
+        lateralRaise    = new ExerciseObject("Shoulder", "Lateral Raise", "Stand with dumbbells in each hand and arms at side. Raise arms laterally.", "Sets: 3", "Reps: 8","geenhiHju-o");
         dbShrug         = new ExerciseObject("Shoulder", "Dumbbell Shrug", "Stand with dumbbells in each hand and arms at side. Raise shoulders up and down.", "Sets: 3", "Reps: 12", "g6qbq4Lf1FI");
         dbPress         = new ExerciseObject("Shoulder", "Dumbbell Press", "Lay on bench at inclined angle. Push dumbbell away from chest.", "Sets: 3", "Reps: 12", "B-aVuyhvLHU");
         shoulderExercises[0] = lateralRaise;
