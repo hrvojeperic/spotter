@@ -130,23 +130,23 @@ public class Exercise extends AppCompatActivity {
         armExercises[1] = hammerCurl;
         armExercises[2] = tricepPushup;
         //Legs
-        lunges          = new ExerciseObject("Legs", "Lunges", "Lunges description here", "Sets: 3", "Reps: 12","wrwwXE_x-pQ");
-        squat           = new ExerciseObject("Legs", "Squat", "Squat description here", "Sets: 5", "Reps: 12", "aclHkVaku9U");
-        calfRaise       = new ExerciseObject("Legs", "Calf Raise", "Calf Raise description here", "Sets: 5", "Reps: 20", "-M4-G8p8fmc");
+        lunges          = new ExerciseObject("Legs", "Lunges", "Place one leg in a few steps in front of you, then bend down until knee if barely off ground. Repeat for other leg" , "Sets: 3", "Reps: 12","wrwwXE_x-pQ");
+        squat           = new ExerciseObject("Legs", "Squat", "Place bar behind neck, then bend down while having a straight back. Drive up through legs while lifting weight.", "Sets: 5", "Reps: 12", "aclHkVaku9U");
+        calfRaise       = new ExerciseObject("Legs", "Calf Raise", "Place top of you feet on a ledge. Then, dip down as far as possible, then drive up your feet while contracting calves.","Sets: 5", "Reps: 20", "-M4-G8p8fmc");
         legExercises[0] = lunges;
         legExercises[1] = squat;
         legExercises[2] = calfRaise;
         //Abs
-        crunches    = new ExerciseObject("Abs", "Crunches", "Crunches description here", "Sets: 5", "Reps: 20","Xyd_fa5zoEU");
-        plank       = new ExerciseObject("Abs", "Plank", "Plank description here", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM");
-        legRaise    = new ExerciseObject("Abs", "Leg Raise", "Leg Raise description here", "Sets: 3","Reps: 12", "JB2oyawG9KI");
+        crunches    = new ExerciseObject("Abs", "Crunches", "Lay flat on back with knees bent. Contract abs until you reach your knees.", "Sets: 5", "Reps: 20","Xyd_fa5zoEU");
+        plank       = new ExerciseObject("Abs", "Plank", "Lay flat on stomach then lift body up with only forearms and feet then hold this position.", "Sets: 3", "Reps: < 1 minute", "Ehy8G39d_PM");
+        legRaise    = new ExerciseObject("Abs", "Leg Raise", "Lay flat on back. Lift legs up and down while contracting abs.", "Sets: 3","Reps: 12", "JB2oyawG9KI");
         abExercises[0] = crunches;
         abExercises[1] = plank;
         abExercises[2] = legRaise;
         //Back
-        chinUp      = new ExerciseObject("Back", "Chin-up", "Chin-up description here.", "Sets: 3", "Reps: 8","mRy9m2Q9_1I");
-        pullup      = new ExerciseObject("Back", "Pullup", "Pullup description here","Sets: 3", "Reps: 8", "XB_7En-zf_M");
-        deadlift    = new ExerciseObject("Back","Deadlift", "Deadlift description here", "Sets: 3", "Reps: 5","r4MzxtBKyNE");
+        chinUp      = new ExerciseObject("Back", "Chin-up", "Hang from bar with palms facing you. Then, lift you body until chin reaches bar.", "Sets: 3", "Reps: 8","mRy9m2Q9_1I");
+        pullup      = new ExerciseObject("Back", "Pullup", "Hang from bar with palms facing away from you. Then, lift you body until chin reaches bar.","Sets: 3", "Reps: 8", "XB_7En-zf_M");
+        deadlift    = new ExerciseObject("Back","Deadlift", "Start in squat position with back straight. Then, lift bar by driving up through legs.", "Sets: 3", "Reps: 5","r4MzxtBKyNE");
         backExercises[0] = chinUp;
         backExercises[1] = pullup;
         backExercises[2] = deadlift;
