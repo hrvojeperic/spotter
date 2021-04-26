@@ -42,7 +42,7 @@
                 android:id="@+id/editTextDesc"
                 android:layout_width="313dp"
                 android:layout_height="69dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:ems="10"
                 android:hint="Title: Description"
                 android:inputType="textMultiLine"

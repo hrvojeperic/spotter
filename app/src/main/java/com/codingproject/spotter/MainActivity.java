@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         // rest day handler
         restDayButton.setOnClickListener(v -> {
-            Toast.makeText(this, "Rest Day Chosen!", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Rest Day Chosen!", Toast.LENGTH_LONG).show();
+            openDialog();
         });
 
         // calendar handler
@@ -62,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                     .setData(builder.build());
             startActivity(intent);
         });
+
+    }
+
+    public void openDialog() {
+        RestDayDialog dialog = new RestDayDialog();
+        dialog.show(getSupportFragmentManager(), "Dialog");
 
     }
 
