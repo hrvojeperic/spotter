@@ -44,7 +44,7 @@
             android:paddingBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/restDayButton"
+                android:id="@+id/addExerciseButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
@@ -57,14 +57,14 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/rest_icon"
+                    android:src="@drawable/ic_baseline_add_24"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Rest Day"
+                    android:text="Add Exercise"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -107,7 +107,7 @@
             android:paddingBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/addExerciseButton"
+                android:id="@+id/restDayButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
@@ -120,14 +120,14 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_baseline_add_24"
+                    android:src="@drawable/rest_icon"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Add Exercise"
+                    android:text="Rest Day"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
