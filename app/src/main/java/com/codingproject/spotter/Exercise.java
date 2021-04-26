@@ -98,7 +98,7 @@ public class Exercise extends AppCompatActivity {
         button2     = (Button) findViewById(R.id.button2ex);     // Done
         youTubePlayerView  = findViewById(R.id.youtubePlayerView);          // Embedded YouTube Player
         getLifecycle().addObserver(youTubePlayerView);
-
+        button1.setEnabled(false);
 
 
 
@@ -225,10 +225,12 @@ public class Exercise extends AppCompatActivity {
             listener = new AbstractYouTubePlayerListener() {
                 @Override
                 public void onReady(YouTubePlayer youTubePlayer) {
+
                     myPlayer = youTubePlayer;
                     String vidId = newExercise.getVideoId();
                     Log.i("onReady", "VidId is: " + vidId);
                     myPlayer.cueVideo(vidId, 0);
+                    button1.setEnabled(true);
                 }
             };
             // Update YouTube video
