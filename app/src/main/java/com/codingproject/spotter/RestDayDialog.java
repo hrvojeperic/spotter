@@ -34,7 +34,7 @@ public class RestDayDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // exit app
-                System.exit(0);
+                getActivity().finishAffinity();
             }
         });
 
